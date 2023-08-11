@@ -11,14 +11,18 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
 
-    public WebDriver driver = null;
+    public static WebDriver driver = null;
 
     public static void main(String[] args) {
+
+        test_setup();
+        login();
+        add_items();
 
     }
 
     @BeforeTest
-    public void test_setup(){
+    public static void test_setup(){
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -26,12 +30,22 @@ public class LoginTest {
         driver.get("https://www.saucedemo.com/");
     }
 
-    @Test
-    public void login(){
+
+
+    @Test(priority = 1)
+    public static void login(){
 
         LoginPage.username(driver).sendKeys("standard_user");
         LoginPage.password(driver).sendKeys("secret_sauce");;
         LoginPage.login_button(driver).click();
     }
+
+    @Test(priority = 2)
+    public static void add_items(){
+
+        LandingPage.add_to_cart_Bike(driver).click();
+        LandingPage.add_to_cart_Backpack(driver).click();
+    }
+
 
 }

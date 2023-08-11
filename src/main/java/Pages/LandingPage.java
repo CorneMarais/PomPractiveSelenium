@@ -26,6 +26,18 @@ public class LandingPage {
         return element;
     }
 
+    public static WebElement add_to_cart_Backpack(WebDriver driver){
+
+        element = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
+        return element;
+    }
+
+    public static WebElement add_to_cart_Bike(WebDriver driver){
+
+        element = driver.findElement(By.id("add-to-cart-sauce-labs-bike-light"));
+        return element;
+    }
+
 
 
 
