@@ -9,6 +9,7 @@ import jdk.jfr.Timespan;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -24,6 +25,7 @@ public class LoginTest {
         login();
         add_items();
         open_cart();
+        tear_down();
 
     }
 
@@ -42,7 +44,7 @@ public class LoginTest {
     public static void login(){
 
         LoginPage.username(driver).sendKeys("standard_user");
-        LoginPage.password(driver).sendKeys("secret_sauce");;
+        LoginPage.password(driver).sendKeys("secret_sauce");
         LoginPage.login_button(driver).click();
     }
 
@@ -74,5 +76,10 @@ public class LoginTest {
         Checkout.Continue_1(driver).click();
     }
 
+    @AfterTest
+    public static void tear_down(){
+
+        driver.quit();
+    }
 
 }
