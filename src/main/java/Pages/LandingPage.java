@@ -16,7 +16,7 @@ public class LandingPage {
 
     public static WebElement cart_button(WebDriver driver){
 
-        element = driver.findElement(By.className("shopping_cart_link"));
+        element = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
         return element;
     }
 
