@@ -36,6 +36,7 @@ public class Checkout {
 
         element = driver.findElement(By.id("cancel"));
         return element;
+
     }
 
 }
